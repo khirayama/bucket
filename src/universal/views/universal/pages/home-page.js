@@ -8,7 +8,10 @@ export default function HomePage() {
       <header>
         <h1>Bucket</h1>
         <p>{i18n.t('home.description')}</p>
-        <a href="/auth/twitter">Login with Twitter</a>
+        <ul className="login-button-list">
+          <li><a href="/auth/twitter">Login with Twitter</a></li>
+          <li><a href="/auth/instagram">Login with Instagram</a></li>
+        </ul>
       </header>
       <div className="lang-list-container">
         <ul className="lang-list">

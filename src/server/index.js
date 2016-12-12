@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({
-  keys: ['secret-key'],
+  keys: [process.env.SECRET_KEY],
   name: '_bucket_session',
 }));
 app.use((req, res, next) => {
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
   const locale = req.query.lang || req.cookies._bucket_locale || req.locale || i18n.defaultLocale;
 
   req.getLocale = () => locale;
-  res.cookie('_bucket_session', locale);
+  res.cookie('_bucket_locale', locale);
   next();
 });
 

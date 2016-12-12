@@ -15,17 +15,25 @@
       padding: 12px 4px;
     }
 
-    a {
-      display: inline-block;
-      padding: 8px 16px;
-      border: $border;
-      border-color: $color-white;
-      border-radius: $radius;
-      opacity: 1;
-      transition: opacity $timing-slow;
+    .login-button-list {
+      width: 200px;
+      margin: 0 auto;
+      li {
+        margin-bottom: 12px;
+        a {
+          display: inline-block;
+          width: 100%;
+          padding: 8px 16px;
+          border: $border;
+          border-color: $color-white;
+          border-radius: $radius;
+          opacity: 1;
+          transition: opacity $timing-slow;
 
-      &:hover {
-        opacity: 0.6;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
       }
     }
   }

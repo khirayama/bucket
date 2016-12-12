@@ -1,6 +1,7 @@
 import passport from 'passport';
 import {Strategy as TwitterStrategy} from 'passport-twitter';
 import {Strategy as InstagramStrategy} from 'passport-instagram';
+import axios from 'axios';
 
 const config = {
   twitter: {
@@ -32,6 +33,17 @@ export function setup() {
 
   passport.use(new InstagramStrategy(config.instagram,
     (token, tokenSecret, profile, done) => {
+      const params = {
+        access_token: token,
+        // lat: 35.319759,
+        // lng: 139.547703,
+      };
+      axios.get('https://api.instagram.com/v1/locations/213046462', {params}).then(({data}) => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err, err);
+      });
+
       done(null, profile);
     }
   ));

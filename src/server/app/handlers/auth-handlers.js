@@ -10,6 +10,7 @@ export function authHandler(req, res) {
 export function authCallbackHandler(req, res) {
   const provider = req.params.provider;
   const authenticate = passport.authenticate(provider, {
+    scope: ['public_content'],
     successRedirect: '/',
     failureRedirect: '/',
   });

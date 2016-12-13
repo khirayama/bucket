@@ -2,7 +2,17 @@ import passport from 'passport';
 
 export function authHandler(req, res) {
   const provider = req.params.provider;
-  const authenticate = passport.authenticate(provider);
+
+  let scope = null;
+
+  switch (provider) {
+    case 'instagram':
+      scope = ['basic', 'public_content', 'follower_list', 'comments', 'relationships', 'likes'];
+    default:
+      break;
+  }
+
+  const authenticate = passport.authenticate(provider, {scope});
 
   authenticate(req, res);
 }
@@ -10,7 +20,6 @@ export function authHandler(req, res) {
 export function authCallbackHandler(req, res) {
   const provider = req.params.provider;
   const authenticate = passport.authenticate(provider, {
-    scope: ['public_content'],
     successRedirect: '/',
     failureRedirect: '/',
   });

@@ -44,10 +44,16 @@ export function applicationHandler(req, res) {
     res.send(layout(content, store.getState()));
   });
 
+  let token = null;
+  if (req.session.passport && req.session.passport.user) {
+    token = req.session.passport.user.token;
+  }
+
   startApplication(
     req.path,
     req.useragent,
     req.getLocale(),
-    req.isAuthenticated()
+    req.isAuthenticated(),
+    token
   );
 }

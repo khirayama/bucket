@@ -39,7 +39,7 @@ export default class Store extends MicroStore {
           break;
       }
 
-      if (typeof window == 'object') {
+      if (typeof window === 'object') {
         console.log('%cAction:', 'color: red; font-weight: bold;', action);
         console.log('%cState:', 'color: blue; font-weight: bold;', this.state);
       }

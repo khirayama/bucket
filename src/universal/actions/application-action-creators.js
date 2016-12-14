@@ -15,11 +15,13 @@ function updateTitle(title) {
 }
 
 function initializePage(pathname, token) {
+  const params = {};
+
   switch (pathname) {
     case '/':
       updateTitle('Bucket');
 
-      const params = {access_token: token};
+      params.access_token = token;
       axios.get('https://api.instagram.com/v1/locations/213046462', {params}).then(({data}) => {
         console.log(data);
       });

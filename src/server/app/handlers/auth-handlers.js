@@ -8,6 +8,7 @@ export function authHandler(req, res) {
   switch (provider) {
     case 'instagram':
       scope = ['basic', 'public_content', 'follower_list', 'comments', 'relationships', 'likes'];
+      break;
     default:
       break;
   }

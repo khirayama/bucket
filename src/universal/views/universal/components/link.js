@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 

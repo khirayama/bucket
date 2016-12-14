@@ -3,6 +3,10 @@
     "xo-space/esnext",
     "xo-react/space"
   ],
+  "env": {
+    "node": true,
+    "browser": true,
+  },
   "rules": {
     "comma-dangle": [
       "error",

@@ -2,7 +2,7 @@ import {dispatch} from 'universal/libs/micro-dispatcher';
 import types from 'universal/constants/action-types';
 import {getUI} from 'universal/helpers';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 function updateTitle(title) {
   return new Promise(resolve => {
@@ -15,17 +15,13 @@ function updateTitle(title) {
 }
 
 function initializePage(pathname, token) {
-  const params = {};
-
   switch (pathname) {
     case '/':
       updateTitle('Bucket');
-
-      params.access_token = token;
-      axios.get('https://api.instagram.com/v1/locations/213046462', {params}).then(({data}) => {
-        console.log(data);
-      });
-
+      // const params.access_token = token;
+      // axios.get('https://api.instagram.com/v1/locations/213046462', {params}).then(({data}) => {
+      //   console.log(data);
+      // });
       break;
     case '/styleguide':
       updateTitle('Styleguide | Bucket');

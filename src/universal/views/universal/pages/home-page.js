@@ -9,6 +9,7 @@ export default function HomePage() {
         <h1>Bucket</h1>
         <p>{i18n.t('home.description')}</p>
         <ul className="login-button-list">
+          <li><a href="/auth/twitter">Login with Twitter</a></li>
           <li><a href="/auth/instagram">Login with Instagram</a></li>
         </ul>
       </header>

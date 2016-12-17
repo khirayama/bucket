@@ -18,8 +18,10 @@
     .login-button-list {
       width: 200px;
       margin: 0 auto;
+
       li {
         margin-bottom: 12px;
+
         a {
           display: inline-block;
           width: 100%;

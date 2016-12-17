@@ -21,6 +21,9 @@ export default class PageContainer extends MicroContainer {
         return (
           <section className="page">
             <h1>Bucket</h1>
+            <div>
+              <Link href="/styleguide">styleguide</Link>
+            </div>
             <a href="/logout">logout</a>
           </section>
         );

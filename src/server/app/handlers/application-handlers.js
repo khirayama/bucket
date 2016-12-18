@@ -11,11 +11,11 @@ import {unsubscribeAll} from 'universal/libs/micro-dispatcher';
 function layout(content, state) {
   return `
     <!DOCTYPE html>
-    <html>
+    <html lang="${state.meta.locale}">
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <title>${state.title}</title>
+        <title>${state.meta.title}</title>
 
         <!-- standalone for android-->
         <link rel="manifest" href="manifest.json">

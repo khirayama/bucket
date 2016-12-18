@@ -6,15 +6,16 @@ import MicroContainer from 'universal/libs/micro-container';
 import router from 'universal/router';
 
 export default class ApplicationContainer extends MicroContainer {
-  _updateTitle(title) {
-    window.document.title = title;
+  _updateHead(meta) {
+    window.document.querySelector('html').lang = meta.locale;
+    window.document.title = meta.title;
   }
   render() {
     const state = this.props.store.getState();
     const pageElement = router.getComponent(state.pathname, {state});
 
     if (typeof window === 'object') {
-      this._updateTitle(state.title);
+      this._updateHead(state.meta);
     }
 
     return (

@@ -13,7 +13,7 @@ window.addEventListener('popstate', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  i18n.setLocale(window.state.locale);
+  i18n.setLocale(window.state.meta.locale);
 
   const store = new Store(window.state);
 

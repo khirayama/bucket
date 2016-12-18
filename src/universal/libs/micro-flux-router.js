@@ -142,16 +142,16 @@ export default class MicroFluxRouter {
     return this;
   }
 
-  getComponent(path, props) {
+  getComponent(path, data) {
     for (let index = 0; index < this._componentRoutes.length; index++) {
       const componentRoute = this._componentRoutes[index];
       const matches = exec(componentRoute.regexp, path);
       if (matches) {
-        return componentRoute.callback(matches.params, props);
+        return componentRoute.callback(matches.params, data);
       }
     }
     if (this._nomatchComponent !== null) {
-      return this._nomatchComponent();
+      return this._nomatchComponent(data);
     }
     return null;
   }

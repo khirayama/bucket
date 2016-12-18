@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
 import MicroContainer from 'universal/libs/micro-container';
@@ -26,4 +26,16 @@ export default class ApplicationContainer extends MicroContainer {
   }
 }
 
-ApplicationContainer.propTypes = {};
+ApplicationContainer.propTypes = {
+  store: PropTypes.shape({
+    state: PropTypes.shape({
+      meta: PropTypes.shape({
+        locale: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+      }),
+      ui: PropTypes.string.isRequired,
+      pathname: PropTypes.string.isRequired,
+      isAuthenticated: PropTypes.bool.isRequired,
+    }),
+  }),
+};

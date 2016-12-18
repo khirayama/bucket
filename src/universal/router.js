@@ -3,8 +3,9 @@ import React from 'react';
 import MicroFluxRouter from 'universal/libs/micro-flux-router';
 
 import HomePage from 'universal/views/universal/pages/home-page';
+import TopPage from 'universal/views/universal/pages/top-page';
 import StyleguidePage from 'universal/views/universal/pages/styleguide-page';
-import Link from 'universal/views/universal/components/link';
+import NotFoundPage from 'universal/views/universal/pages/not-found-page';
 
 import {updateTitle} from 'universal/actions/application-action-creators';
 
@@ -17,19 +18,11 @@ router.register('/', {
       resolve();
     });
   },
-  component: (prams, props_) => {
-    if (!props_.state.isAuthenticated) {
-      return <HomePage state={props_.state}/>;
+  component: (params, {state}) => {
+    if (!state.isAuthenticated) {
+      return <HomePage state={state}/>;
     }
-    return (
-      <section className="page">
-        <h1>Bucket</h1>
-        <div>
-          <Link href="/styleguide">styleguide</Link>
-        </div>
-        <a href="/logout">logout</a>
-      </section>
-    );
+    return <TopPage state={state}/>;
   },
 });
 
@@ -40,8 +33,8 @@ router.register('/styleguide', {
       resolve();
     });
   },
-  component: (prams, props_) => {
-    return <StyleguidePage state={props_.state}/>;
+  component: (params, {state}) => {
+    return <StyleguidePage state={state}/>;
   },
 });
 
@@ -53,12 +46,7 @@ router.register({
     });
   },
   component: () => {
-    return (
-      <section className="page">
-        <h1>Not Found</h1>
-        <Link href="/">top</Link>
-      </section>
-    );
+    return <NotFoundPage/>;
   },
 });
 
